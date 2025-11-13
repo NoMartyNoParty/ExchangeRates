@@ -12,7 +12,7 @@
 *.dll
 
 # temporary / IDE
-.vscode/
+/.vscode/
 *.user
 *.log
 

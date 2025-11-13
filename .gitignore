@@ -1,0 +1,20 @@
+﻿# build artifacts
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/*.vcxproj*
+*.sln
+
+# compiled binaries
+*.exe
+*.obj
+*.o
+*.dll
+
+# temporary / IDE
+.vscode/
+*.user
+*.log
+
+# optional: ако не искате да качвате CSV с данни
+# eurofxref-hist.csv

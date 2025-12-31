@@ -96,3 +96,23 @@ TEST_CASE("Unsupported Currency Test") {
     REQUIRE(rates.is_supported("USD"));
     REQUIRE(!rates.is_supported("JPY"));
 }
+
+TEST_CASE("Entry Count Test") {
+    std::ofstream file("test_count.csv");
+    file << "Date,USD,GBP\n";
+    file << "2025-01-15,1.1000,0.8500\n";
+    file << "2025-01-16,1.1100,0.8600\n";
+    file << "2025-01-17,1.1200,0.8700\n";
+    file.close();
+    
+    exchange_rates rates;
+    rates.from_csv("test_count.csv", "EUR");
+    
+    REQUIRE(rates.entry_count() == 3);
+}
+
+TEST_CASE("Entry Count Empty Test") {
+    exchange_rates rates;
+    
+    REQUIRE(rates.entry_count() == 0);
+}

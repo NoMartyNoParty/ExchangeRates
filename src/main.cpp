@@ -16,10 +16,15 @@ std::chrono::system_clock::time_point parse_date(const std::string& date_str) {
     return exchange_rates::make_date(year, month, day);
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Error: No file path provided. Usage: " << argv[0] << " <path_to_csv_file>" << std::endl;
+        return 1;
+    }
+    
     try {
-        exchange_rates rates("../src/eurofxref-hist.csv", "EUR");
-        std::cout << "Exchange rates loaded successfully." << std::endl << std::endl;
+        exchange_rates rates(argv[1], "EUR");
+        std::cout << rates.entry_count() << " entries loaded successfully." << std::endl << std::endl;
         
         std::cout << "Please, enter a query, or \"exit\" to leave." << std::endl << std::endl;
         
@@ -77,7 +82,7 @@ int main() {
                 }
                 
                 std::cout.precision(4);
-                std::cout << std::fixed << exchange_rate << std::endl;
+                std::cout << exchange_rate << std::endl;
                 
             } catch (const std::exception& e) {
                 std::cout << "Error: " << e.what() << std::endl;

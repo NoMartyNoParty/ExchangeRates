@@ -42,4 +42,5 @@ public:
     double for_date(const std::chrono::system_clock::time_point& date, const char* currency) const;
     const char* base_currency() const;
     bool is_supported(const char* currency) const;
+    size_t entry_count() const;
 };

@@ -1,1 +1,0 @@
-/home/runner/work/ExchangeRates/.codeql-scratch/dbs/cpp/working/autobuild/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/rates.dir/link.d CMakeFiles/rates.dir/src/main.cpp.o CMakeFiles/rates.dir/src/cpp/exchange_rates.cpp.o -o rates

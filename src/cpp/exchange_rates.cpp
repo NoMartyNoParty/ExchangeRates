@@ -303,3 +303,7 @@ bool exchange_rates::is_supported(const char* currency) const {
     
     return (left < (int)currencies_.size() && currencies_[left] == currency_str);
 }
+
+size_t exchange_rates::entry_count() const {
+    return data_.size();
+}
